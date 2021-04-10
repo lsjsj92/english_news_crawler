@@ -2,3 +2,5 @@ education
 ai
 game
 book
+bts
+blackpink
