@@ -80,10 +80,17 @@ if __name__ == "__main__":
     with open(base_dir + '/data/search_list.txt', 'r') as f:
         for line in f:
             search_list.append(line.rstrip('\n'))
-    start(search_list)
+            print(search_list)
+            # 최대 프로세스는 4개까지
+            if len(search_list) == 4:
+                start(search_list)
+                # 다 끝내고 초기화
+                search_list = []
+        # 4개가 안 되었을 때 진행. 하나도 없을 땐 진행 X
+        if len(search_list) > 0 :
+            start(search_list)
     
     # 개선사항
         # 1. .env나 argument로 파라미터 받을 수 있도록 변경할 수도 있음
         # 2. class 객체화?
-        # 3. input 개수가 만약 4개 이상이면, 4개씩 쪼개서 프로세스 돌리도록 -> 지금은 내가 원하는 것만 받아서 4개뿐임
 
