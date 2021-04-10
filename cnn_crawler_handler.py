@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from multiprocessing import Process
 
-class CNNcrawler():
+class CNNcrawler:
     def __init__(self):
         self.base_dir = os.path.dirname(os.path.abspath(__file__))
             
