@@ -1,4 +1,4 @@
-# english_news_crawler
+# english news crawler
 
 ## For english news crawler
 
@@ -11,5 +11,8 @@
     - search_list.txt
         - search list
 
-- cnn_crawler.py
-    - Crawlering cnn news data using search keyword
+- cnn_crawler_handler.py
+    - cnn crawler
+
+- main.py
+    - start crawling using with search keyword
