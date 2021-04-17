@@ -11,7 +11,7 @@ from multiprocessing import Process
 class CNNcrawler:
     def __init__(self):
         self.base_dir = os.path.dirname(os.path.abspath(__file__))
-            
+
     def set_driver(self, driver_path):
         '''chrome driver setting'''
         driver = webdriver.Chrome(driver_path)
@@ -35,6 +35,7 @@ class CNNcrawler:
         driver_path = self.base_dir + '/driver/chromedriver'
         driver = self.set_driver(driver_path)
         url = f"https://edition.cnn.com/search/?size=10&q={q}&page="
+        # 아래 range를 변형해서 더 많은 데이터를 수집할 수 있음
         for i in range(1, 3):
             # 처음일 때와 아닐 때 url 값이 바뀌어서 flag를 이용해 변환
             if flag_is_first == True:
