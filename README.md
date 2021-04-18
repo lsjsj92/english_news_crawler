@@ -1,8 +1,8 @@
 # english news crawler
 
-## For english news crawler
+### For english news crawler
 
-# file list
+# Main file list
 - driver
     - chromedriver
         - based on chrome version 89.x
@@ -16,3 +16,8 @@
 
 - main.py
     - start crawling using with search keyword
+
+# Sub file list
+
+- use_newspaper_lib.py
+    - sample crawler using with newspaper3k lib
