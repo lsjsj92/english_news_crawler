@@ -31,21 +31,21 @@ class CNNcrawler:
         query(search 키워드)에 따라서 muliprocess로 돌면서 data collect and save
         '''
         href_list, title_list, date_list, content_list = [], [], [], []
-        flag_is_first = True
         driver_path = self.base_dir + '/driver/chromedriver'
         driver = self.set_driver(driver_path)
-        url = f"https://edition.cnn.com/search/?size=10&q={q}&page="
+        url = f"https://edition.cnn.com/search/?size=10&q={q}"
         # 아래 range를 변형해서 더 많은 데이터를 수집할 수 있음
-        for i in range(1, 3):
+        for i in range(1, 4):
             # 처음일 때와 아닐 때 url 값이 바뀌어서 flag를 이용해 변환
-            if flag_is_first == True:
-                url = url + str(i)
-                flag_is_first = False
+            if i == 1:
+                url = url + "&page=" + str(i)
             else:
-                # 첫 페이지가 아닐 때는 뒤에 &from=10이 붙음
-                url = url + str(i) + "&from=10"
+                # 첫 페이지가 아닐 때는 뒤에 &from= (10 * (current_page - 1)) 이 붙음
+                url = url.split("&page=")[0]
+                url = url + "&page=" + str(i) + f"&from={10 * (i-1)}"
             driver.get(url)
             page_source = driver.page_source
+            print(url)
             soup = BeautifulSoup(page_source, 'lxml')
             div_list = soup.findAll("div", {"class":"cnn-search__result-contents"})
             for d in div_list:
