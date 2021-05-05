@@ -19,5 +19,8 @@
 
 # Sub file list
 
-- use_newspaper_lib.py
-    - sample crawler using with newspaper3k lib
+- etc
+    - use_newspaper_lib.py
+        - sample crawler using with newspaper3k lib
+    - for_colab_version.ipynb
+        - Use in colab env
